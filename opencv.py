@@ -1,5 +1,6 @@
 import cv2 as cv
 
+
 def detect_scratches(path):
     print(path)
     # Load the image
