@@ -30,6 +30,12 @@ def resize_and_detect(image_path, new_width, new_height):
     # Load the image using PIL
     image = Image.open(image_path)
 
+    preview = cv2.imread(image_path)
+    cv2.namedWindow('Origin Size', cv2.WINDOW_NORMAL)
+    cv2.imshow('Origin Size', preview)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
     # Define a transformation to resize the image and convert to a PyTorch tensor
     transform = transforms.Compose([
         transforms.Resize((new_height, new_width)),
@@ -49,8 +55,10 @@ def resize_and_detect(image_path, new_width, new_height):
 
 
 if __name__ == "__main__":
-    image_path = "path_to_your_image.jpg"
-    new_width = 800  # Specify the new width in pixels
-    new_height = 600  # Specify the new height in pixels
+    image_path = "img/test.jpg"
+    # new_width = 800  # Specify the new width in pixels
+    # new_height = 600  # Specify the new height in pixels
+    new_width = 3696  # Specify the new width in pixels
+    new_height = 2855  # Specify the new height in pixels
 
     resize_and_detect(image_path, new_width, new_height)
